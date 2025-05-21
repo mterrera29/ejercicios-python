@@ -17,7 +17,7 @@ def filtro_por_anio_v1(lista, anio):
             res.append(v)
     return res
 
-#Pruebo la lista y la funci
+#Pruebo la lista y la fun
 print("lista:", lista)
 print("lista[0]:", lista[0])
 print("Vehículos del 2017:", filtro_por_anio_v1(lista, 2017))
