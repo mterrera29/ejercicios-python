@@ -1,3 +1,5 @@
+import math
+
 #1. Que al pasarle una cadena <nombre> nos muestre por pantalla el saludo ¡Hola <nombre>!.
 
 #num=(input("introduce tu nombre: "))
@@ -104,23 +106,67 @@
 #c. Que indique si es primo o no.
 #d. Por último, su factorial.
 
-num1=int(input("ingrese un numero entero positivo "))
-i = 0
-impares = ""
+#num1=int(input("ingrese un numero entero positivo "))
+#i = 0
+#impares = ""
+#
+#while i <= num1:
+#  if i %2 == 0:
+#    i = i+1
+#  else:
+#    impares = impares + str(i)+","
+#    i = i+1 
+#    
+#cuentaAtras = ""
+#
+#x= num1
+#while x >= 0:
+#  cuentaAtras = cuentaAtras + str(x)+","
+#  x= x-1 
+#
+#def es_primo(n):
+#  if num1 < 2:
+#    return "no es primo"
+#  for i in range(2, int(math.sqrt(n)) + 1):
+#    if n % i == 0:
+#      return "no es primo" 
+#  return "es primo"
+#
+#def factorial(n):
+#  resultado = 1
+#  for i in range(1, n +1):
+#    print(i)
+#    resultado = resultado * i
+#  print(resultado)
+#    
+#print(impares)
+#print(cuentaAtras)
+#print(es_primo(num1))
+#factorial(num1)
 
-while i <= num1:
-  if i %2 == 0:
-    i = i+1
-  else:
-    impares = impares + str(i)+","
-    i = i+1 
-    
-cuentaAtras = ""
+#11. Que solicite al usuario ingresar una frase. Luego, que imprima la cantidad de vocales que se
+#encuentran en dicha frase.
 
-x= num1
-while x >= 0:
-  cuentaAtras = cuentaAtras + str(x)+","
-  x= x-1 
-    
-print(impares)
-print(cuentaAtras)
+frase=input("ingresar una frase ")
+
+def contar_vocales(fras):
+  for i in range(len(fras)):
+    print(fras[i])
+
+contar_vocales(frase)
+
+#12. Pedir al usuario que ingrese un día de la semana e imprimir un mensaje si es lunes, otro
+#mensaje diferente si es viernes, otro mensaje diferente si es sábado o domingo. Si el día
+#ingresado no es ninguno de esos, imprimir otro mensaje.
+#13. Que resuelva el siguiente problema: los alumnos de un curso se han dividido en dos grupos
+#A y B de acuerdo al sexo y el nombre. El grupo A está formado por las mujeres con un
+#nombre anterior a la M y los hombres con un nombre posterior a la N y el grupo B por el
+#resto. Escribir un programa que pregunte al usuario su nombre y sexo y muestre por pantalla
+#el grupo que le corresponde.
+#14. Que pida un año y que escriba si es bisiesto o no. Les recordamos que los años bisiestos son
+#múltiplos de 4, pero los múltiplos de 100 no lo son, aunque los múltiplos de 400 sí. Algunos
+#ejemplos de posibles respuestas: 2012 es bisiesto, 2010 no es bisiesto, 2000 es bisiesto, 1900
+#no es bisiesto.
+#15. Que solicite al usuario una letra y, si es una vocal, muestre el mensaje “es vocal”. Se debe
+#validar que el usuario ingrese sólo un carácter. Si ingresa un string de más de un carácter,
+#informarle que no se puede procesar el dato.
