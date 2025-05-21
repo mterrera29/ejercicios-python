@@ -147,26 +147,90 @@ import math
 #11. Que solicite al usuario ingresar una frase. Luego, que imprima la cantidad de vocales que se
 #encuentran en dicha frase.
 
-frase=input("ingresar una frase ")
-
-def contar_vocales(fras):
-  for i in range(len(fras)):
-    print(fras[i])
-
-contar_vocales(frase)
+#frase=input("ingresar una frase ")
+#
+#def contar_vocales(fras):
+#  cantidad= 0
+#  vocales = "aeiou"
+#  for i in range(len(fras)):
+#    for x in range(len(vocales)):
+#      if fras[i] == vocales[x]:
+#       cantidad+= 1
+#  print(f"la cantidad de vocales de la palabra es {cantidad}")
+#
+#contar_vocales(frase)
 
 #12. Pedir al usuario que ingrese un día de la semana e imprimir un mensaje si es lunes, otro
 #mensaje diferente si es viernes, otro mensaje diferente si es sábado o domingo. Si el día
+#frase=input("ingresar un día de la semana: ")
+#
+#dias_semana = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+#saludos_semana = ["que arranques muy bien la semana", "que comienzes muy bien el día", "ya estas a mitad de semana!", "vamos que amañana es viernes a aguantar hoy!", "hoy es VIERNESSS", "hoy se pica", "a descansar como lo hizo Dios"]
+#
+#def saludo(mensaje):
+#  if mensaje.lower() in dias_semana:
+#    for i in range(len(dias_semana)):
+#      if mensaje.lower() == dias_semana[i]:
+#        print(saludos_semana[i])
+#  else:
+#    print("no ingresaste un día de semana")
+#    
+#saludo(frase)
+
 #ingresado no es ninguno de esos, imprimir otro mensaje.
 #13. Que resuelva el siguiente problema: los alumnos de un curso se han dividido en dos grupos
 #A y B de acuerdo al sexo y el nombre. El grupo A está formado por las mujeres con un
 #nombre anterior a la M y los hombres con un nombre posterior a la N y el grupo B por el
 #resto. Escribir un programa que pregunte al usuario su nombre y sexo y muestre por pantalla
 #el grupo que le corresponde.
+
+#nombre_alumno=input("ingresar un nombre ")
+#sexo_alumno=input("ingresar sexo ")
+#
+#def definir_grupo(nombre, sexo):
+#  grupo_a= False
+#  if sexo == "mujer":
+#    if nombre[0] < "m" :
+#      grupo_a= True
+#  if sexo == "hombre":
+#    if nombre[0] > "n" :
+#      grupo_a= True
+#  if grupo_a:
+#    return print("perteneces al grupo A")
+#  else:
+#    return print("perteneces al grupo B")
+#
+#definir_grupo(nombre_alumno, sexo_alumno)
+  
+  
 #14. Que pida un año y que escriba si es bisiesto o no. Les recordamos que los años bisiestos son
 #múltiplos de 4, pero los múltiplos de 100 no lo son, aunque los múltiplos de 400 sí. Algunos
 #ejemplos de posibles respuestas: 2012 es bisiesto, 2010 no es bisiesto, 2000 es bisiesto, 1900
 #no es bisiesto.
+
+#anio=int(input("ingresar un año: "))
+#
+#def bisiesto(an):
+#  if (an % 4 == 0 and an % 100 != 0) or (an % 400 == 0):
+#    print("es bisiesto")
+#  else:
+#    print("no es bisiesto")
+#bisiesto(anio)
+
 #15. Que solicite al usuario una letra y, si es una vocal, muestre el mensaje “es vocal”. Se debe
 #validar que el usuario ingrese sólo un carácter. Si ingresa un string de más de un carácter,
 #informarle que no se puede procesar el dato.
+
+letra=input("ingresar una letra: ")
+vocales = "aeiou"
+
+def es_vocal(let):
+  if(len(let)>1):
+    print("debes ingresar un solo caracter")
+  else:
+    if(let in vocales):
+      print("es vocal")
+    else:
+      print("no es vocal")
+
+es_vocal(letra)
