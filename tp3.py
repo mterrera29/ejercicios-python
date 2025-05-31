@@ -37,29 +37,189 @@
 
 #3. Dada la siguiente lista de frutas [“banana”, “manzana”, “pera”], permitir al usuario ingresar 3 frutas más para agregarlas al final de lista. Luego, mostrar por pantalla la lista completa y debajo la misma lista pero sólo con las frutas que añadió el usuario.
 
-lista= [“banana”, “manzana”, “pera”]
+#lista= ["banana", "manzana", "pera"]
+#
+#fruta1= input("ingrese una fruta: ")
+#fruta2= input("ingrese una fruta: ")
+#fruta3= input("ingrese una fruta: ")
+#lista.extend([fruta1, fruta2, fruta3])
+#print(lista)
+#
+#print(lista[-3:])
 
 
 #4. Dada la siguiente lista: países = [“Argentina,”Brasil”, “Bolivia”,”Paraguay”,”Venezuela”], realizar lo siguiente:
+
+países = ["Argentina","Brasil", "Bolivia","Paraguay","Venezuela"]
+
 #a. Imprimir la cantidad de elementos que tiene la lista.
+
+#print(len(países))
+
 #b. Imprimir el primer y último elemento.
+
+#print(países[0], países[-1])
+
 #c. Imprimir el resto.
+#print(países[1:-1])
+
 #d. Permitir que el usuario ingrese un país e imprimir el índice si el país se encuentra en la lista. Si no se encuentra, imprimir un mensaje advirtiendo al usuario.
-#e. Permitir al usuario ingresar un número igual o menor a la cantidad de elementos de la lista. Quitar el elemento correspondiente de esa posición. PROGRAMACIÓN 1 - Trabajo Práctico Nº 3 1
+
+#paisUsuario = input("ingrese un pais: ")
+#
+#if paisUsuario in países:
+#  print(países.index(paisUsuario))
+#else:
+#  print("el pais ingresado no se encuentra en la lista")
+
+#e. Permitir al usuario ingresar un número igual o menor a la cantidad de elementos de la lista. Quitar el elemento correspondiente de esa posición.
+
+#numero = int(input("ingresar un número"))
+#
+#if numero <= len(países):
+#  países.remove(países[numero])
+#  print(países)
+#else:
+#  print("ingresar otro numero")
+  
 #f. Imprimir la lista en orden inverso.
+
+#países.reverse()
+#print(países)
+
 #g. Vaciar la lista.
-#5. Escriba un programa Python que solicite al usuario el ingreso de números enteros. Cuando el usuario ingrese la palabra “fin” el programa deberá concluir con la carga de datos. Cada uno de los números ingresados por el usuario deberá ser almacenado en una lista. A continuación, realice las siguientes tareas:
-#a. Determinar el máximo.
-#b. Obtener segundo valor máximo. Es decir el que le sigue al máximo.
-#c. Determinar el mínimo.
-#d. Calcular la multiplicación de todos los números de la lista.
-#e. Contar los valores pares e impares.
-#f. Remover los elementos repetidos.
+#países.clear()
+#print(países)
+#
+#
+##5. Escriba un programa Python que solicite al usuario el ingreso de números enteros. Cuando el usuario ingrese la palabra “fin” el programa deberá concluir con la carga de datos. Cada uno de los números ingresados por el usuario deberá ser almacenado en una lista. A continuación, realice las siguientes tareas:
+#
+#listaNumeros = []
+#
+#i=1
+#
+#while i > 0:
+#  numero = input("ingresar un número entero")
+#  if numero == "fin":
+#    break
+#  else:
+#   listaNumeros.append(int(numero))
+#
+#print(listaNumeros)
+##a. Determinar el máximo.
+#
+#listaNumeros.sort()
+#print(listaNumeros[-1])
+#
+##b. Obtener segundo valor máximo. Es decir el que le sigue al máximo.
+#
+#print(listaNumeros[-2])
+#
+##c. Determinar el mínimo.
+#
+#print(listaNumeros[0])
+#
+##d. Calcular la multiplicación de todos los números de la lista.
+#multiplicacion=1
+#for i in range(len(listaNumeros)):
+#  multiplicacion= multiplicacion *listaNumeros[i]
+#  
+#print(multiplicacion)
+#  
+##e. Contar los valores pares e impares.
+#pares= 0
+#impares= 0
+#for i in range(len(listaNumeros)):
+#  if listaNumeros[i] % 2 == 0:
+#    pares+=1
+#  else:
+#    impares+=1
+#print(f"pares={pares}, impares={impares}")
+#
+##f. Remover los elementos repetidos.
+#sinRerpetidos= []
+#for i in range(len(listaNumeros)):
+#  if listaNumeros[i] in sinRerpetidos:
+#    print("repetido")
+#  else:
+#    sinRerpetidos.append(listaNumeros[i])
+#print(sinRerpetidos)
+#
+
+
 #6. Programe una aplicación de consola Python que brinde al usuario la posibilidad de a partir de una lista vacía:
+
+#listaVacia= []
+#
+#i= 1
+#while i > 0:
+#  entrada = input("Elegir una de las siguientes opciones:\n1. Agregar un elemento al final.\n2. Agregar un elemento al principio.\n3. Quitar un elemento al final.\n4. Quitar un elemento al principio.\n0. Salir\n")
+#  
+#  match entrada :
+#    case "1":
+#      agregar= input("ingresar un elemento al final de la lista: ")
+#      listaVacia.append(agregar)
+#    case "2":
+#      agregar= input("ingresar un elemento al principio")
+#      listaVacia.insert(0, agregar)
+#    case "3":
+#      listaVacia.pop()
+#    case "4":
+#      listaVacia.pop(0)
+#    case "0":
+#      break
+#    case _:
+#      print("ingreso invalido")
+#      break
+#  print(listaVacia)
+#      
+#print(listaVacia)
+#  
 #a. Agregar un elemento al final.
 #b. Agregar un elemento al principio.
 #c. Quitar un elemento al final.
 #d. Quitar un elemento al principio.
+
+#listaVacia = []
+#
+#while True:
+#    entrada = input(
+#        "\nElegí una opción:\n"
+#        "1. Agregar un elemento al final\n"
+#        "2. Agregar un elemento al principio\n"
+#        "3. Quitar un elemento al final\n"
+#        "4. Quitar un elemento al principio\n"
+#        "0. Salir\n"
+#        ">> "
+#    )
+#
+#    match entrada:
+#        case "1":
+#            agregar = input("Ingresá un elemento al final de la lista: ")
+#            listaVacia.append(agregar)
+#        case "2":
+#            agregar = input("Ingresá un elemento al principio: ")
+#            listaVacia.insert(0, agregar)
+#        case "3":
+#            if listaVacia:
+#                listaVacia.pop()
+#            else:
+#                print("La lista está vacía, no se puede quitar nada.")
+#        case "4":
+#            if listaVacia:
+#                listaVacia.pop(0)
+#            else:
+#                print("La lista está vacía, no se puede quitar nada.")
+#        case "0":
+#            print("Saliendo del programa...")
+#            break
+#        case _:
+#            print("Ingreso inválido. Por favor, elegí una opción válida.")
+#
+#    print("Lista actual:", listaVacia)
+#
+
+
 #7. Escriba un programa Python que cuente con dos listas, la primera de ellas almacenará strings con tareas pendientes y la segunda almacenará strings con tareas terminadas. Permita al usuario:
 #a. Agregar nuevas tareas pendientes.
 #b. Marcar las tareas pendientes como terminadas. Al hacer esto, la tarea deberá pasar de la lista de pendientes a la de terminadas.
