@@ -224,3 +224,44 @@ países = ["Argentina","Brasil", "Bolivia","Paraguay","Venezuela"]
 #a. Agregar nuevas tareas pendientes.
 #b. Marcar las tareas pendientes como terminadas. Al hacer esto, la tarea deberá pasar de la lista de pendientes a la de terminadas.
 #Nota: posterior a cada operación deberá mostrar por pantalla el estado actual de ambas listas.
+
+tareasPendientes = []
+tareasTerminadas = []
+stringPend= ""
+stringTerm=""
+
+while True:
+  tareas = input(
+    "\nElegí una opción:\n"
+    "1. Agregar tarea pendiente\n"
+    "2. Marcar tarea pendiente como terminada\n"
+  )
+  stringPend= ""
+  stringTerm=""
+  match tareas:
+    case "1":
+      agregar = input("Ingresá una tarea pendiente: ")
+      tareasPendientes.append(agregar)
+    case "2":
+      if tareasPendientes:
+        stringLista= ""
+        for i in range(len(tareasPendientes)):
+          stringLista +=f"{i+1} -{tareasPendientes[i]}\n"
+        
+        agregar = input(f"Ingresar el número de tarea que desea marcar como terminada: \n{stringLista}")
+        tareaEliminada = int(agregar) -1
+        tareasTerminadas.append(tareasPendientes[tareaEliminada])
+        tareasPendientes.pop(tareaEliminada)
+      else:
+        print("No hay tareas pendientes")
+    case "0":
+      print("Ingreso inválido. Por favor, elegí una opción válida.")
+      break
+    case _:
+      print("Ingreso inválido. Por favor, elegí una opción válida.")
+      break
+  for i in range(len(tareasPendientes)):
+    stringPend +=f"{i+1}- {tareasPendientes[i]}\n"
+  for i in range(len(tareasTerminadas)):
+    stringTerm +=f"{i+1}- {tareasTerminadas[i]}\n"
+  print(f"\nTareas pendientes: \n{"-Ninguna" if stringPend == "" else stringPend}\nTareas terminadas: \n{"-Ninguna" if stringTerm == "" else stringTerm}\n")
