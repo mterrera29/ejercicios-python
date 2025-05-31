@@ -221,16 +221,26 @@ import math
 #validar que el usuario ingrese sólo un carácter. Si ingresa un string de más de un carácter,
 #informarle que no se puede procesar el dato.
 
-letra=input("ingresar una letra: ")
-vocales = "aeiou"
+#letra=input("ingresar una letra: ")
+#vocales = "aeiou"
+#
+#def es_vocal(let):
+#  if(len(let)>1):
+#    print("debes ingresar un solo caracter")
+#  else:
+#    if(let in vocales):
+#      print("es vocal")
+#    else:
+#      print("no es vocal")
+#
+#es_vocal(letra)
+#
 
-def es_vocal(let):
-  if(len(let)>1):
-    print("debes ingresar un solo caracter")
-  else:
-    if(let in vocales):
-      print("es vocal")
-    else:
-      print("no es vocal")
+#tuplex = (4, 6, 2, 8, 3, 1)
+#
+#tuplex = tuplex[:5] + (15, 20, 25) + tuplex[:5] 
+#
+#print(tuplex)
 
-es_vocal(letra)
+prueba_deportiva={'Jorge':500,'Diana':600,'Rodrigo':800,'Julia':750,'Liliana':900}
+print(prueba_deportiva.keys())
