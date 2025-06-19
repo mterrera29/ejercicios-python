@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "titulo": "Cien años de soledad",
+        "autor": "Gabriel García Márquez",
+        "editorial": "Sudamericana",
+        "año": 1967,
+        "stock": 10,
+        "precio": 3500.0
+    },
+    {
+        "id": 2,
+        "titulo": "1984",
+        "autor": "George Orwell",
+        "editorial": "Debolsillo",
+        "año": 1949,
+        "stock": 5,
+        "precio": 2800.0
+    },
+    {
+        "id": 3,
+        "titulo": "El Principito",
+        "autor": "Antoine de Saint-Exupéry",
+        "editorial": "Salamandra",
+        "año": 1943,
+        "stock": 8,
+        "precio": 2200.0
+    },
+    {
+        "id": 4,
+        "titulo": "Rayuela",
+        "autor": "Julio Cortázar",
+        "editorial": "Sudamericana",
+        "año": 1963,
+        "stock": 6,
+        "precio": 3900.0
+    },
+    {
+        "id": 5,
+        "titulo": "Fahrenheit 451",
+        "autor": "Ray Bradbury",
+        "editorial": "Minotauro",
+        "año": 1953,
+        "stock": 4,
+        "precio": 3100.0
+    },
+    {
+        "id": 6,
+        "titulo": "asdasd",
+        "autor": "asdasd",
+        "editorial": "asdasd",
+        "año": 123123,
+        "stock": 12321,
+        "precio": 12313.0
+    }
+]
