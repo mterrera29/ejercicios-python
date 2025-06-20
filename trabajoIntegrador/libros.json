@@ -14,7 +14,7 @@
         "autor": "George Orwell",
         "editorial": "Debolsillo",
         "año": 1949,
-        "stock": 5,
+        "stock": 0,
         "precio": 2800.0
     },
     {
@@ -41,7 +41,7 @@
         "autor": "Ray Bradbury",
         "editorial": "Minotauro",
         "año": 1953,
-        "stock": 4,
+        "stock": 0,
         "precio": 3100.0
     },
     {
@@ -52,5 +52,14 @@
         "año": 123123,
         "stock": 12321,
         "precio": 12313.0
+    },
+    {
+        "id": 7,
+        "titulo": "asdasd",
+        "autor": "yO",
+        "editorial": "asdasd",
+        "año": 1976,
+        "stock": 2,
+        "precio": 341.0
     }
 ]

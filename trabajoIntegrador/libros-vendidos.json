@@ -36,7 +36,39 @@
         "id_libro": "5",
         "titulo": "Fahrenheit 451",
         "fecha": "20-6-1989",
-        "cantidad": "2",
+        "cantidad": 0,
         "total": 6200.0
+    },
+    {
+        "id_venta": 6,
+        "id_libro": "5",
+        "titulo": "Fahrenheit 451",
+        "fecha": "123",
+        "cantidad": 4,
+        "total": 12400.0
+    },
+    {
+        "id_venta": 7,
+        "id_libro": "2",
+        "titulo": "1984",
+        "fecha": "19/06/2025",
+        "cantidad": 3,
+        "total": 8400.0
+    },
+    {
+        "id_venta": 8,
+        "id_libro": "2",
+        "titulo": "1984",
+        "fecha": "19/06/2025",
+        "cantidad": 1,
+        "total": 2800.0
+    },
+    {
+        "id_venta": 9,
+        "id_libro": "2",
+        "titulo": "1984",
+        "fecha": "19/06/2025",
+        "cantidad": 1,
+        "total": 2800.0
     }
 ]
