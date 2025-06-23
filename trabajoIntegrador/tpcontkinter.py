@@ -1,146 +1,57 @@
-# Proyecto: Sistema de Gestión para una Librería
-# La app funcionara a través de la consola, en la cual se mostrará el siguiente menú:
-
-#"BIENVENIDO AL SISTEMA DE GESTIÓN DE LIBRERIAS"
-#"Elegí una opción:"
-#"1. Mostrar Catálogo de Libros"
-#"2. Agregar un libro"
-#"3. Editar Libro"
-#"4. Eliminar Libro"
-#"5. Buscar Libro"
-#"6. Mostrar Ventas"
-#"7. Ingresar Venta"
-#"0. Salir" 
-
-# Para la persistencia de los datos la app utilizará dos archivos JSON, uno para el catalogo de libros y otro para registrar las ventas
-
-
-# TAREAS/FUNCIONALIDADES BÁSICAS :
-
-# 1. Mostrar Catálogo
-#    - Listar todos los libros del catálogo con sus datos completos.
-
-# 2. Agregar Libro
-#    - Ingresar un nuevo libro al catálogo.
-#    - Validar que no se repita el ID.
-
-# 3. Editar Libro
-#    - Modificar los datos de un libro existente (título, autor, año, editorial, stock, precio).
-#    - Buscar el libro por ID o título.
-
-# 4. Eliminar Libro
-#    - Eliminar un libro del catálogo.
-#    - Confirmar antes de borrar.
-#    - Buscar por ID o título.
-
-# 5. Buscar Libro
-#    - Buscar libros por título, autor, editorial o año.
-#    - Mostrar coincidencias.
-
-## SI NOS DA EL TIEMPO TAMBIEN PODEMOS HACER ESTA FUNCIONALIDAD:
-
-# 6. Agregar Venta
-#    - Registrar una venta de un libro.
-#    - Verificar que haya stock suficiente.
-#    - Descontar el stock del libro vendido.
-#    - Agregar el registro a la lista de ventas con fecha, cantidad y total.
-
-# 7. Mostrar Ventas
-#    - Ver lista de libros vendidos con sus datos.
-#    - Posiblemente mostrar ventas por fecha o por libro.
-
-# 8. Guardar y Cargar Datos (opcional)
-#    - Guardar el catálogo y las ventas en archivos (JSON).
-#    - Cargar los datos al iniciar el sistema.
-
-
 import json
-
-""" libros = [
-    {
-        "id": 1,
-        "titulo": "Cien años de soledad",
-        "autor": "Gabriel García Márquez",
-        "editorial": "Sudamericana",
-        "año": 1967,
-        "stock": 10,
-        "precio": 3500.00
-    },
-    {
-        "id": 2,
-        "titulo": "1984",
-        "autor": "George Orwell",
-        "editorial": "Debolsillo",
-        "año": 1949,
-        "stock": 5,
-        "precio": 2800.00
-    },
-    {
-        "id": 3,
-        "titulo": "El Principito",
-        "autor": "Antoine de Saint-Exupéry",
-        "editorial": "Salamandra",
-        "año": 1943,
-        "stock": 8,
-        "precio": 2200.00
-    },
-    {
-        "id": 4,
-        "titulo": "Rayuela",
-        "autor": "Julio Cortázar",
-        "editorial": "Sudamericana",
-        "año": 1963,
-        "stock": 6,
-        "precio": 3900.00
-    },
-    {
-        "id": 5,
-        "titulo": "Fahrenheit 451",
-        "autor": "Ray Bradbury",
-        "editorial": "Minotauro",
-        "año": 1953,
-        "stock": 4,
-        "precio": 3100.00
-    }
-]
- """
-""" libros_vendidos = [
-    {
-        "id_venta": 1,
-        "id_libro": 2,
-        "titulo": "1984",
-        "fecha": "2025-06-10",
-        "cantidad": 2,
-        "total": 5600.00
-    },
-    {
-        "id_venta": 2,
-        "id_libro": 1,
-        "titulo": "Cien años de soledad",
-        "fecha": "2025-06-11",
-        "cantidad": 1,
-        "total": 3500.00
-    },
-    {
-        "id_venta": 3,
-        "id_libro": 3,
-        "titulo": "El Principito",
-        "fecha": "2025-06-12",
-        "cantidad": 3,
-        "total": 6600.00
-    }
-]
- """
+import tkinter as tk
+from tkinter import ttk
 
 with open("libros.json", "r", encoding="utf-8") as lib:
   libros = json.load(lib)
 
 with open("libros-vendidos.json", "r", encoding="utf-8") as lib:
   libros_vendidos = json.load(lib)
+  
+  
+  # Crear ventana principal
+ventana = tk.Tk()
+ventana.title("Catálogo de libros")
+ventana.geometry("900x300")
+
+# Frame para la tabla y el scrollbar
+frame = tk.Frame(ventana)
+frame.pack(fill="both", expand=True)
+
+# Scrollbar vertical
+scrollbar = tk.Scrollbar(frame)
+scrollbar.pack(side="right", fill="y")
+
+# Crear Treeview
+columnas = ("id", "titulo", "autor", "editorial", "año", "stock", "precio")
+tabla = ttk.Treeview(frame, columns=columnas, show="headings", yscrollcommand=scrollbar.set)
+
+# Configurar encabezados
+for col in columnas:
+    tabla.heading(col, text=col.capitalize())
+    tabla.column(col, anchor="center")
+
+# Cargar datos en la tabla
+for libro in libros:
+    fila = (
+        libro["id"],
+        libro["titulo"],
+        libro["autor"],
+        libro["editorial"],
+        libro["año"],
+        libro["stock"],
+        libro["precio"]
+    )
+    tabla.insert("", "end", values=fila)
+
+tabla.pack(fill="both", expand=True)
+scrollbar.config(command=tabla.yview)
+
+# Iniciar la aplicación
+ventana.mainloop()
 
 from datetime import datetime
 fecha_actual = datetime.now()
-  
 
 def mostrarVenta(libro_venta):
   print(f"\nID Venta: {str(libro_venta['id_venta'])}\n"
