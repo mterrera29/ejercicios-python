@@ -180,19 +180,20 @@ def generarIDVenta():
     return 1
 
 # FUNCIONES DE LAS OPCIONES
-def mostrarCatalogo():
+def mostrar_catalogo(libros):
+  print(
+    "\n#######################"
+    "\nCatálogo de libros")
   for libro in libros:
-    print(
-    "\n#######################")
     mostrarLibro(libro)
 
-def agregarLibro():
-  titulo = input("Ingresá Título: ")
-  autor = input("Ingresá Autor: ")
-  editorial = input("Ingresá Editorial: ")
-  año = input("Ingresá Año: ")
-  stock = input("Ingresá Stock: ")
-  precio = input("Ingresá Precio: ")
+def agregar_libro(libros):
+  titulo = input("Ingresar Título: ")
+  autor = input("Ingresar Autor: ")
+  editorial = input("Ingresar Editorial: ")
+  año = input("Ingresar Año: ")
+  stock = input("Ingresar Stock: ")
+  precio = input("Ingresar Precio: ")
   nuevoLibro= {
     "id": generarID(),
     "titulo":titulo,
@@ -201,16 +202,16 @@ def agregarLibro():
     "año": int(año),
     "stock": int(stock),
     "precio": float(precio)
-}
+  }
   libros.append(nuevoLibro)
   guardarJson()
   print(
     "\n#######################"
-    "\nLIBRO AGREGADO:")
+    "\nLibro agregado:")
   mostrarLibro(nuevoLibro)
   
-def editarLibro():
-  id = input("Ingresá el ID del libro a editar: ")
+def editar_libro(libros):
+  id = input("Ingresar Id del libro a editar: ")
   encontrado = any(libro["id"] == int(id) for libro in libros)
   if encontrado:
     for libro in libros:
@@ -249,32 +250,32 @@ def editarLibro():
         guardarJson()
         print(
           "\n#######################"
-          "\nLIBRO EDITADO:")
+          "\nLibro actualizado:")
         mostrarLibro(libro)
         break
   else:
     print("No se encontró un libro con ese ID")
     
-def eliminarLibro():
-  id = input("Ingresá el ID del libro a ELIMINAR: ")
-  encontrado = any(libro["id"] == int(id) for libro in libros)
+def eliminar_libro(libros):
+  id = int(input("Ingresar el ID del libro a ELIMINAR: "))
+  encontrado = any(libro["id"] == id for libro in libros)
   if encontrado:
-    for i, libro in enumerate(libros):
-      if libro['id'] == int(id):
-        confirmacion = input(f"Estas seguro que desea ELIMINAR {libro['titulo']}? S/N ")
-        if(confirmacion.lower() =="s"):
-          del libros[i]
-          guardarJson()
-          print(
-          "\n#######################"
-          "\nLIBRO ELIMINADO:")
-          mostrarLibro(libro)
-        else:
-          print("NO se eliminó el libro")
+    for libro in libros:
+      if libro["id"] == id:
+          confirmacion = input(f"Estas seguro que desea ELIMINAR {libro['titulo']}? S/N ")
+          if(confirmacion.lower() =="s"):
+            libros.remove(libro)
+            guardarJson()
+            print(
+            "\n#######################"
+            "\nLibro eliminado:")
+            mostrarLibro(libro)
+          else:
+            print("NO se eliminó el libro.")
   else:
-    print("No se encontró un libro con ese ID")
+    print("No se encontró un libro con ese ID.")
 
-def buscarLibro():
+def buscar_libro(libros):
   resultados = []
   busqueda = input("Ingresá un dato (Título, Autor, Editorial, Año..) para buscar un libro... ").lower()
   for libro in libros:
@@ -283,7 +284,7 @@ def buscarLibro():
   
   if(len(resultados)):
     print("\n#######################"
-          "\nRESULTADOS")
+          "\nResultadode la busqueda:")
     for resultado in resultados:
       print(
       "\n#######################")
@@ -354,34 +355,34 @@ def ingresarVenta():
 while True :   
   inicio = input(
     "\nBIENVENIDO AL SISTEMA DE GESTIÓN DE LIBRERIAS\n"
-    "\nElegí una opción:\n"
-    "1. Mostrar Catálogo de Libros\n"
-    "2. Agregar un libro\n"
-    "3. Editar Libro\n"
-    "4. Eliminar Libro\n"
-    "5. Buscar Libro\n"
+    "\nMenú:\n"
+    "1. Mostrar catálogo\n"
+    "2. Agregar libro\n"
+    "3. Editar libro\n"
+    "4. Eliminar libro\n"
+    "5. Buscar libro\n"
     "6. Mostrar Ventas\n"
     "7. Ingresar Venta\n"
     "0. Salir\n"
   )
   match inicio:
     case "1":
-      mostrarCatalogo()
+      mostrar_catalogo(libros)
       break
     case "2":
-      agregarLibro()
+      agregar_libro(libros)
       break
     case "3":
-      editarLibro()
+      editar_libro(libros)
       break
     case "4":
-      eliminarLibro()
+      eliminar_libro(libros)
       break
     case "5":
-      buscarLibro()
+      buscar_libro(libros)
       break
     case "6":
-      mostrarVendidos()
+      mostrar_vendidos(libros)
       continue
     case "7":
       ingresarVenta()

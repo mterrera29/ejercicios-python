@@ -52,14 +52,5 @@
         "año": 123123,
         "stock": 12321,
         "precio": 12313.0
-    },
-    {
-        "id": 7,
-        "titulo": "asdasd",
-        "autor": "yO",
-        "editorial": "asdasd",
-        "año": 1976,
-        "stock": 2,
-        "precio": 341.0
     }
 ]
