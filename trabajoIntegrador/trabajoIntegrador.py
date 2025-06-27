@@ -56,82 +56,6 @@
 
 import json
 
-""" libros = [
-    {
-        "id": 1,
-        "titulo": "Cien años de soledad",
-        "autor": "Gabriel García Márquez",
-        "editorial": "Sudamericana",
-        "año": 1967,
-        "stock": 10,
-        "precio": 3500.00
-    },
-    {
-        "id": 2,
-        "titulo": "1984",
-        "autor": "George Orwell",
-        "editorial": "Debolsillo",
-        "año": 1949,
-        "stock": 5,
-        "precio": 2800.00
-    },
-    {
-        "id": 3,
-        "titulo": "El Principito",
-        "autor": "Antoine de Saint-Exupéry",
-        "editorial": "Salamandra",
-        "año": 1943,
-        "stock": 8,
-        "precio": 2200.00
-    },
-    {
-        "id": 4,
-        "titulo": "Rayuela",
-        "autor": "Julio Cortázar",
-        "editorial": "Sudamericana",
-        "año": 1963,
-        "stock": 6,
-        "precio": 3900.00
-    },
-    {
-        "id": 5,
-        "titulo": "Fahrenheit 451",
-        "autor": "Ray Bradbury",
-        "editorial": "Minotauro",
-        "año": 1953,
-        "stock": 4,
-        "precio": 3100.00
-    }
-]
- """
-""" libros_vendidos = [
-    {
-        "id_venta": 1,
-        "id_libro": 2,
-        "titulo": "1984",
-        "fecha": "2025-06-10",
-        "cantidad": 2,
-        "total": 5600.00
-    },
-    {
-        "id_venta": 2,
-        "id_libro": 1,
-        "titulo": "Cien años de soledad",
-        "fecha": "2025-06-11",
-        "cantidad": 1,
-        "total": 3500.00
-    },
-    {
-        "id_venta": 3,
-        "id_libro": 3,
-        "titulo": "El Principito",
-        "fecha": "2025-06-12",
-        "cantidad": 3,
-        "total": 6600.00
-    }
-]
- """
-
 with open("libros.json", "r", encoding="utf-8") as lib:
   libros = json.load(lib)
 
@@ -139,19 +63,11 @@ with open("libros-vendidos.json", "r", encoding="utf-8") as lib:
   libros_vendidos = json.load(lib)
 
 from datetime import datetime
+
 fecha_actual = datetime.now()
-  
 
-def mostrarVenta(libro_venta):
-  print(f"\nID Venta: {str(libro_venta['id_venta'])}\n"
-  f"ID Libro: {str(libro_venta['id_libro'])}\n"
-  f"Título: {libro_venta['titulo']}\n"
-  f"Fecha: {libro_venta['fecha']}\n"
-  f"Cantidad: {str(libro_venta['cantidad'])}\n"
-  f"Total: {str(libro_venta['total'])}\n")
-
-def mostrarLibro(libro):
-  print(f"\nID: {str(libro['id'])}\n"
+def mostrar_libro(libro):
+  print(f"ID: {str(libro['id'])}\n"
   f"Título: {libro['titulo']}\n"
   f"Autor: {libro['autor']}\n"
   f"Editorial: {libro['editorial']}\n"
@@ -159,21 +75,55 @@ def mostrarLibro(libro):
   f"Stock: {str(libro['stock'])}\n"
   f"Precio: {str(libro['precio'])}\n")
 
-def guardarJson():
+def mostrar_venta(libro_venta):
+  print(f"\nID Venta: {str(libro_venta['id_venta'])}\n"
+  f"ID Libro: {str(libro_venta['id_libro'])}\n"
+  f"Título: {libro_venta['titulo']}\n"
+  f"Fecha: {libro_venta['fecha']}\n"
+  f"Cantidad: {str(libro_venta['cantidad'])}\n"
+  f"Total: {str(libro_venta['total'])}\n")
+
+def validar_num_int(ingreso):
+  try:
+    num = int(ingreso)
+    return num
+  except ValueError:
+    otro_ingreso = input("Error, ingresar un número válido: ")
+    return validar_num_int(otro_ingreso)
+  
+def validar_num_float(ingreso):
+  try:
+    num = float(ingreso)
+    return num
+  except ValueError:
+    otro_ingreso = input("Error, ingresar un número válido: ")
+    return validar_num_float(otro_ingreso)
+  
+def comprobar_stock(stock, cantidad):
+  if cantidad == 0:
+    print("No es posible realizar la venta")
+    return False
+  elif(int(stock )- int(cantidad)) < 0:
+    print("No hay stock suficiente para realizar la venta")
+    cantidad = comprobar_stock(stock,validar_num_int((input("Ingresar otra cantidad a vender: "))))
+    return cantidad
+  else: return cantidad
+  
+def guardar_json():
   with open("libros.json", "w", encoding="utf-8") as lib:
     json.dump(libros, lib, indent=4, ensure_ascii=False)
 
-def guardarJsonVenta():
+def guardar_json_venta():
   with open("libros-vendidos.json", "w", encoding="utf-8") as lib:
     json.dump(libros_vendidos, lib, indent=4, ensure_ascii=False)
 
-def generarID():
+def generar_ID():
   if libros:
     return  max(libro["id"] for libro in libros) +1
   else:
     return 1
 
-def generarIDVenta():
+def generar_ID_venta():
   if libros_vendidos:
     return  max(libro_venta["id_venta"] for libro_venta  in libros_vendidos) +1
   else:
@@ -185,30 +135,30 @@ def mostrar_catalogo(libros):
     "\n#######################"
     "\nCatálogo de libros")
   for libro in libros:
-    mostrarLibro(libro)
+    mostrar_libro(libro)
 
 def agregar_libro(libros):
   titulo = input("Ingresar Título: ")
   autor = input("Ingresar Autor: ")
   editorial = input("Ingresar Editorial: ")
-  año = input("Ingresar Año: ")
-  stock = input("Ingresar Stock: ")
-  precio = input("Ingresar Precio: ")
+  año = validar_num_int(input("Ingresar Año: "))
+  stock = validar_num_int(input("Ingresar Stock: "))
+  precio = validar_num_float(input("Ingresar Precio: "))
   nuevoLibro= {
-    "id": generarID(),
+    "id": generar_ID(),
     "titulo":titulo,
     "autor": autor,
     "editorial": editorial,
-    "año": int(año),
-    "stock": int(stock),
-    "precio": float(precio)
+    "año": año,
+    "stock": stock,
+    "precio": precio
   }
   libros.append(nuevoLibro)
-  guardarJson()
+  guardar_json()
   print(
     "\n#######################"
     "\nLibro agregado:")
-  mostrarLibro(nuevoLibro)
+  mostrar_libro(nuevoLibro)
   
 def editar_libro(libros):
   id = input("Ingresar Id del libro a editar: ")
@@ -238,20 +188,20 @@ def editar_libro(libros):
               libro['editorial'] = nuevo
           case "4":
               nuevo = input("Nuevo Año: ")
-              libro['año'] = int(nuevo)
+              libro['año'] = validar_num_int(nuevo)
           case "5":
               nuevo = input("Nuevo Stock: ")
-              libro['stock'] = int(nuevo)
+              libro['stock'] = validar_num_int(nuevo)
           case "6":
               nuevo = input("Nuevo Precio: ")
-              libro['precio'] = float(nuevo)
+              libro['precio'] = validar_num_float(nuevo)
           case _:
               print("Opción inválida.")
-        guardarJson()
+        guardar_json()
         print(
           "\n#######################"
           "\nLibro actualizado:")
-        mostrarLibro(libro)
+        mostrar_libro(libro)
         break
   else:
     print("No se encontró un libro con ese ID")
@@ -265,11 +215,11 @@ def eliminar_libro(libros):
           confirmacion = input(f"Estas seguro que desea ELIMINAR {libro['titulo']}? S/N ")
           if(confirmacion.lower() =="s"):
             libros.remove(libro)
-            guardarJson()
+            guardar_json()
             print(
             "\n#######################"
             "\nLibro eliminado:")
-            mostrarLibro(libro)
+            mostrar_libro(libro)
           else:
             print("NO se eliminó el libro.")
   else:
@@ -288,69 +238,67 @@ def buscar_libro(libros):
     for resultado in resultados:
       print(
       "\n#######################")
-      mostrarLibro(resultado)
+      mostrar_libro(resultado)
   else:
     print("No hay resultados...")
     
-def mostrarVendidos():
+def mostrar_vendidos(libros_vendidos):
   for libro_venta in libros_vendidos:
     print(
     "\n#######################")
-    mostrarVenta(libro_venta)
+    mostrar_venta(libro_venta)
     
-def ingresarVenta():
-  id = input("Ingresá ID del libro a vender: ")
+def ingresar_venta(libros, libros_vendidos):
+  id = validar_num_int(input("Ingresá ID del libro a vender: "))
   encontrado = any(libro["id"] == int(id) for libro in libros)
   titulo=""
   precio= 0
-  stock = False
+  stock = 0
   if not encontrado:
     print("El libro ingresado no existe")
   else:
-    for i, libro in enumerate(libros):
+    for libro in libros:
       if libro['id'] == int(id):
         if libro["stock"] == 0:
           stock=False
           break
-        stock=True
+        stock=libro['stock']
         titulo= libro['titulo']
         precio= libro['precio']
       
-  if not stock:
-    print("No hay stock del libro a vender.")
-  else:
-    cantidad = input("Ingresá Cantidad: ")
+  if stock:
+    print(f"""El stock de "{titulo}" es {stock}""")
+    cantidad = comprobar_stock(stock,validar_num_int((input("Ingresar cantidad a vender: "))))
     total= precio * float(cantidad)
 
     nuevaVenta= {
-      "id_venta": generarIDVenta(),
+      "id_venta": generar_ID_venta(),
       "id_libro": id,
       "titulo":titulo,
       "fecha": fecha_actual.strftime("%d/%m/%Y"),
       "cantidad": int(cantidad),
       "total": float(total)
     }
-    
-    confirmacion = input(f"El total a pagar es {total}, desea CONFIRMAR la VENTA? S/N ")
-    
-    if(confirmacion.lower() =="s"):
-      for libro in libros:
-        if libro['id'] == int(id):
-          if(int(libro["stock"] )- int(cantidad)) < 0:
-            print("No hay stock suficiente para realizar la venta")
-            break         
-          else:
+    for libro in libros:
+      if libro['id'] == int(id):
+        if cantidad == False:
+         break         
+        else:
+          confirmacion = input(f"El total a pagar es {total}, desea CONFIRMAR la VENTA? S/N ")
+          if(confirmacion.lower() =="s"):
             libro["stock"] -= int(cantidad)
             print(f"el stock es {libro["stock"]}")
             libros_vendidos.append(nuevaVenta)
-            guardarJson()
-            guardarJsonVenta()
+            guardar_json()
+            guardar_json_venta()
             print(
             "\n#######################"
             "\n INFORMACIÓN DE VENTA:")
-            mostrarVenta(nuevaVenta)
-    else:
-      print("Venta cancelada")
+            mostrar_venta(nuevaVenta)
+          else:
+            print("Venta cancelada")
+  else:
+    print("No hay stock del libro a vender.")
     
 while True :   
   inicio = input(
@@ -382,10 +330,10 @@ while True :
       buscar_libro(libros)
       break
     case "6":
-      mostrar_vendidos(libros)
+      mostrar_vendidos(libros_vendidos)
       continue
     case "7":
-      ingresarVenta()
+      ingresar_venta(libros, libros_vendidos)
       break
     case "0":
       print("Gracias por utilizar nuestro sistema.")

@@ -70,5 +70,29 @@
         "fecha": "19/06/2025",
         "cantidad": 1,
         "total": 2800.0
+    },
+    {
+        "id_venta": 10,
+        "id_libro": "1",
+        "titulo": "Cien años de soledad",
+        "fecha": "27/06/2025",
+        "cantidad": 3,
+        "total": 10500.0
+    },
+    {
+        "id_venta": 11,
+        "id_libro": "1",
+        "titulo": "Cien años de soledad",
+        "fecha": "27/06/2025",
+        "cantidad": 1,
+        "total": 3500.0
+    },
+    {
+        "id_venta": 12,
+        "id_libro": "1",
+        "titulo": "Cien años de soledad",
+        "fecha": "27/06/2025",
+        "cantidad": 0,
+        "total": 0.0
     }
 ]
