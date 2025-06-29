@@ -1,68 +1,12 @@
-# Proyecto: Sistema de Gestión para una Librería
-# La app funcionara a través de la consola, en la cual se mostrará el siguiente menú:
-
-#"BIENVENIDO AL SISTEMA DE GESTIÓN DE LIBRERIAS"
-#"Elegí una opción:"
-#"1. Mostrar Catálogo de Libros"
-#"2. Agregar un libro"
-#"3. Editar Libro"
-#"4. Eliminar Libro"
-#"5. Buscar Libro"
-#"6. Mostrar Ventas"
-#"7. Ingresar Venta"
-#"0. Salir" 
-
-# Para la persistencia de los datos la app utilizará dos archivos JSON, uno para el catalogo de libros y otro para registrar las ventas
-
-
-# TAREAS/FUNCIONALIDADES BÁSICAS :
-
-# 1. Mostrar Catálogo
-#    - Listar todos los libros del catálogo con sus datos completos.
-
-# 2. Agregar Libro
-#    - Ingresar un nuevo libro al catálogo.
-#    - Validar que no se repita el ID.
-
-# 3. Editar Libro
-#    - Modificar los datos de un libro existente (título, autor, año, editorial, stock, precio).
-#    - Buscar el libro por ID o título.
-
-# 4. Eliminar Libro
-#    - Eliminar un libro del catálogo.
-#    - Confirmar antes de borrar.
-#    - Buscar por ID o título.
-
-# 5. Buscar Libro
-#    - Buscar libros por título, autor, editorial o año.
-#    - Mostrar coincidencias.
-
-## SI NOS DA EL TIEMPO TAMBIEN PODEMOS HACER ESTA FUNCIONALIDAD:
-
-# 6. Agregar Venta
-#    - Registrar una venta de un libro.
-#    - Verificar que haya stock suficiente.
-#    - Descontar el stock del libro vendido.
-#    - Agregar el registro a la lista de ventas con fecha, cantidad y total.
-
-# 7. Mostrar Ventas
-#    - Ver lista de libros vendidos con sus datos.
-#    - Posiblemente mostrar ventas por fecha o por libro.
-
-# 8. Guardar y Cargar Datos (opcional)
-#    - Guardar el catálogo y las ventas en archivos (JSON).
-#    - Cargar los datos al iniciar el sistema.
-
-
 import json
+
+from datetime import datetime
 
 with open("libros.json", "r", encoding="utf-8") as lib:
   libros = json.load(lib)
 
 with open("libros-vendidos.json", "r", encoding="utf-8") as lib:
   libros_vendidos = json.load(lib)
-
-from datetime import datetime
 
 fecha_actual = datetime.now()
 
@@ -76,7 +20,7 @@ def mostrar_libro(libro):
   f"Precio: ${str(libro['precio'])}\n")
 
 def mostrar_venta(libro_venta):
-  print(f"\nID Venta: {str(libro_venta['id_venta'])}\n"
+  print(f"ID Venta: {str(libro_venta['id_venta'])}\n"
   f"ID Libro: {str(libro_venta['id_libro'])}\n"
   f"Título: {libro_venta['titulo']}\n"
   f"Fecha y Hora: {libro_venta['fecha']}\n"
@@ -236,20 +180,18 @@ def buscar_libro(libros):
   
   if(len(resultados)):
     print("\n#######################"
-          "\nResultadode la busqueda:")
+          "\nResultado de la busqueda:\n")
     for resultado in resultados:
-      print(
-      "\n#######################")
       mostrar_libro(resultado)
   else:
     print("No hay resultados...")
     
 def mostrar_vendidos(libros_vendidos):
   if libros_vendidos:
+    print(
+    "\n#######################\n"
+    "Ventas realizadas:\n")
     for libro_venta in libros_vendidos:
-      print(
-      "\n#######################\n"
-      "Ventas realizadas:")
       mostrar_venta(libro_venta)
   else:
     print("Aún no hay ventas...")
@@ -293,7 +235,8 @@ def ingresar_venta(libros, libros_vendidos):
               print("Venta cancelada")
         else:
           print(f"""No hay stock de "{libro['titulo']}" """)
-    
+
+#MENU:    
 while True :   
   inicio = input(
     "\nBIENVENIDO AL SISTEMA DE GESTIÓN DE LIBRERIAS\n"

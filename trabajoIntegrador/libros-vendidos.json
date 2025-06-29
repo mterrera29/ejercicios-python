@@ -1,10 +1,18 @@
 [
-    {
-        "id_venta": 1,
-        "id_libro": 5,
-        "titulo": "Fahrenheit 451",
-        "fecha": "29/06/2025; 18:36:18",
-        "cantidad": 1,
-        "total": 3100.0
-    }
+  {
+    "id_venta": 1,
+    "id_libro": 5,
+    "titulo": "Fahrenheit 451",
+    "fecha": "29/06/2025; 18:36:18",
+    "cantidad": 1,
+    "total": 3100.0
+  },
+  {
+    "id_venta": 2,
+    "id_libro": 1,
+    "titulo": "Cien años de soledad",
+    "fecha": "29/06/2025; 19:06:25",
+    "cantidad": 1,
+    "total": 3500.0
+  }
 ]
