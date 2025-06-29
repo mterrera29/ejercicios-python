@@ -5,7 +5,7 @@
         "autor": "Gabriel García Márquez",
         "editorial": "Sudamericana",
         "año": 1967,
-        "stock": 7,
+        "stock": 5,
         "precio": 3500.0
     },
     {
@@ -46,47 +46,92 @@
     },
     {
         "id": 6,
-        "titulo": "asdasd",
-        "autor": "asdasd",
-        "editorial": "asdasd",
-        "año": 123123,
-        "stock": 12321,
-        "precio": 12313.0
+        "titulo": "Crónica de una muerte anunciada",
+        "autor": "Gabriel García Márquez",
+        "editorial": "Debolsillo",
+        "año": 1981,
+        "stock": 7,
+        "precio": 2500.0
     },
     {
         "id": 7,
-        "titulo": "asda",
-        "autor": "asad",
-        "editorial": "qweqe",
-        "año": 12313,
-        "stock": 1213,
-        "precio": 123123.0
+        "titulo": "La metamorfosis",
+        "autor": "Franz Kafka",
+        "editorial": "Alianza",
+        "año": 1915,
+        "stock": 4,
+        "precio": 2000.0
     },
     {
         "id": 8,
-        "titulo": "asdad",
-        "autor": "123123",
-        "editorial": "12312",
-        "año": 123123,
-        "stock": 123,
-        "precio": 123.0
+        "titulo": "Don Quijote de la Mancha",
+        "autor": "Miguel de Cervantes",
+        "editorial": "Castalia",
+        "año": 1605,
+        "stock": 3,
+        "precio": 4800.0
     },
     {
         "id": 9,
-        "titulo": "asdad",
-        "autor": "asdasd",
-        "editorial": "asdasd",
-        "año": 123,
-        "stock": 123123,
-        "precio": 123132.0
+        "titulo": "Ensayo sobre la ceguera",
+        "autor": "José Saramago",
+        "editorial": "Alfaguara",
+        "año": 1995,
+        "stock": 5,
+        "precio": 3400.0
     },
     {
         "id": 10,
-        "titulo": "asdasd",
-        "autor": "asdasd",
-        "editorial": "asdasd",
-        "año": 123123,
-        "stock": 123123,
-        "precio": 123123.345
+        "titulo": "El túnel",
+        "autor": "Ernesto Sabato",
+        "editorial": "Seix Barral",
+        "año": 1948,
+        "stock": 6,
+        "precio": 2900.0
+    },
+    {
+        "id": 11,
+        "titulo": "Los siete locos",
+        "autor": "Roberto Arlt",
+        "editorial": "Losada",
+        "año": 1929,
+        "stock": 4,
+        "precio": 3200.0
+    },
+    {
+        "id": 12,
+        "titulo": "Pedro Páramo",
+        "autor": "Juan Rulfo",
+        "editorial": "Fondo de Cultura Económica",
+        "año": 1955,
+        "stock": 2,
+        "precio": 2600.0
+    },
+    {
+        "id": 13,
+        "titulo": "El Aleph",
+        "autor": "Jorge Luis Borges",
+        "editorial": "Emecé",
+        "año": 1949,
+        "stock": 3,
+        "precio": 3300.0
+    },
+    {
+        "id": 14,
+        "titulo": "Sobre héroes y tumbas",
+        "autor": "Ernesto Sabato",
+        "editorial": "Seix Barral",
+        "año": 1961,
+        "stock": 5,
+        "precio": 3600.0
+    },
+    {
+        "id": 15,
+        "titulo": "Los detectives salvajes",
+        "autor": "Roberto Bolaño",
+        "editorial": "Alfaguara",
+        "año": 1998,
+        "stock": 3,
+        "precio": 4000.0
     }
 ]

@@ -73,15 +73,15 @@ def mostrar_libro(libro):
   f"Editorial: {libro['editorial']}\n"
   f"Año: {str(libro["año"])}\n"
   f"Stock: {str(libro['stock'])}\n"
-  f"Precio: {str(libro['precio'])}\n")
+  f"Precio: ${str(libro['precio'])}\n")
 
 def mostrar_venta(libro_venta):
   print(f"\nID Venta: {str(libro_venta['id_venta'])}\n"
   f"ID Libro: {str(libro_venta['id_libro'])}\n"
   f"Título: {libro_venta['titulo']}\n"
-  f"Fecha: {libro_venta['fecha']}\n"
+  f"Fecha y Hora: {libro_venta['fecha']}\n"
   f"Cantidad: {str(libro_venta['cantidad'])}\n"
-  f"Total: {str(libro_venta['total'])}\n")
+  f"Total: ${str(libro_venta['total'])}\n")
 
 def validar_num_int(ingreso):
   try:
@@ -109,33 +109,36 @@ def comprobar_stock(stock, cantidad):
     return cantidad
   else: return cantidad
   
-def guardar_json():
+def guardar_json(libros):
   with open("libros.json", "w", encoding="utf-8") as lib:
     json.dump(libros, lib, indent=4, ensure_ascii=False)
 
-def guardar_json_venta():
+def guardar_json_venta(libros_vendidos):
   with open("libros-vendidos.json", "w", encoding="utf-8") as lib:
     json.dump(libros_vendidos, lib, indent=4, ensure_ascii=False)
 
-def generar_ID():
+def generar_ID(libros):
   if libros:
     return  max(libro["id"] for libro in libros) +1
   else:
     return 1
 
-def generar_ID_venta():
+def generar_ID_venta(libros_vendidos):
   if libros_vendidos:
     return  max(libro_venta["id_venta"] for libro_venta  in libros_vendidos) +1
   else:
     return 1
 
-# FUNCIONES DE LAS OPCIONES
+# OPCIONES
 def mostrar_catalogo(libros):
-  print(
-    "\n#######################"
-    "\nCatálogo de libros")
-  for libro in libros:
-    mostrar_libro(libro)
+  if libros:
+    print(
+      "\n#######################"
+      "\nCatálogo de libros\n")
+    for libro in libros:
+      mostrar_libro(libro)
+  else:
+    print("Aún no hay libros...")
 
 def agregar_libro(libros):
   titulo = input("Ingresar Título: ")
@@ -145,7 +148,7 @@ def agregar_libro(libros):
   stock = validar_num_int(input("Ingresar Stock: "))
   precio = validar_num_float(input("Ingresar Precio: "))
   nuevoLibro= {
-    "id": generar_ID(),
+    "id": generar_ID(libros),
     "titulo":titulo,
     "autor": autor,
     "editorial": editorial,
@@ -154,10 +157,10 @@ def agregar_libro(libros):
     "precio": precio
   }
   libros.append(nuevoLibro)
-  guardar_json()
+  guardar_json(libros)
   print(
     "\n#######################"
-    "\nLibro agregado:")
+    "\nLibro agregado: \n")
   mostrar_libro(nuevoLibro)
   
 def editar_libro(libros):
@@ -168,14 +171,13 @@ def editar_libro(libros):
       if libro['id'] == int(id):
         editar = input(
         "\n#######################\n"
-        "¿Qué dato del libro querés editar?"
-        f"\nID: {str(libro['id'])}\n"
-        f"1 -Título: {libro['titulo']}\n"
-        f"2 -Autor: {libro['autor']}\n"
-        f"3 -Editorial: {libro['editorial']}\n"
-        f"4 -Año: {str(libro["año"])}\n"
-        f"5 -Stock: {str(libro['stock'])}\n"
-        f"6 -Precio: {str(libro['precio'])}\n")
+        "¿Qué dato del libro querés editar?\n"
+        f"1. Título: {libro['titulo']}\n"
+        f"2. Autor: {libro['autor']}\n"
+        f"3. Editorial: {libro['editorial']}\n"
+        f"4. Año: {str(libro["año"])}\n"
+        f"5. Stock: {str(libro['stock'])}\n"
+        f"6. Precio: {str(libro['precio'])}\n")
         match editar:
           case "1":
               nuevo = input("Nuevo Título: ")
@@ -197,10 +199,10 @@ def editar_libro(libros):
               libro['precio'] = validar_num_float(nuevo)
           case _:
               print("Opción inválida.")
-        guardar_json()
+        guardar_json(libros)
         print(
           "\n#######################"
-          "\nLibro actualizado:")
+          "\nLibro actualizado: \n")
         mostrar_libro(libro)
         break
   else:
@@ -212,13 +214,13 @@ def eliminar_libro(libros):
   if encontrado:
     for libro in libros:
       if libro["id"] == id:
-          confirmacion = input(f"Estas seguro que desea ELIMINAR {libro['titulo']}? S/N ")
+          confirmacion = input(f"""Estás seguro que desea ELIMINAR "{libro['titulo']}"? S/N """)
           if(confirmacion.lower() =="s"):
             libros.remove(libro)
-            guardar_json()
+            guardar_json(libros)
             print(
             "\n#######################"
-            "\nLibro eliminado:")
+            "\nLibro eliminado: \n")
             mostrar_libro(libro)
           else:
             print("NO se eliminó el libro.")
@@ -243,62 +245,54 @@ def buscar_libro(libros):
     print("No hay resultados...")
     
 def mostrar_vendidos(libros_vendidos):
-  for libro_venta in libros_vendidos:
-    print(
-    "\n#######################")
-    mostrar_venta(libro_venta)
+  if libros_vendidos:
+    for libro_venta in libros_vendidos:
+      print(
+      "\n#######################\n"
+      "Ventas realizadas:")
+      mostrar_venta(libro_venta)
+  else:
+    print("Aún no hay ventas...")
     
 def ingresar_venta(libros, libros_vendidos):
   id = validar_num_int(input("Ingresá ID del libro a vender: "))
   encontrado = any(libro["id"] == int(id) for libro in libros)
-  titulo=""
-  precio= 0
-  stock = 0
   if not encontrado:
-    print("El libro ingresado no existe")
+    print("El libro ingresado no existe.")
   else:
     for libro in libros:
       if libro['id'] == int(id):
-        if libro["stock"] == 0:
-          stock=False
-          break
-        stock=libro['stock']
-        titulo= libro['titulo']
-        precio= libro['precio']
+        if libro["stock"]:
+          print(f"""El stock de "{libro['titulo']}" es {libro['stock']}.""")
+          cantidad = comprobar_stock(libro['stock'],validar_num_int((input("Ingresar cantidad a vender: "))))
+          total= libro['precio'] * float(cantidad)
       
-  if stock:
-    print(f"""El stock de "{titulo}" es {stock}""")
-    cantidad = comprobar_stock(stock,validar_num_int((input("Ingresar cantidad a vender: "))))
-    total= precio * float(cantidad)
-
-    nuevaVenta= {
-      "id_venta": generar_ID_venta(),
-      "id_libro": id,
-      "titulo":titulo,
-      "fecha": fecha_actual.strftime("%d/%m/%Y"),
-      "cantidad": int(cantidad),
-      "total": float(total)
-    }
-    for libro in libros:
-      if libro['id'] == int(id):
-        if cantidad == False:
-         break         
-        else:
-          confirmacion = input(f"El total a pagar es {total}, desea CONFIRMAR la VENTA? S/N ")
-          if(confirmacion.lower() =="s"):
-            libro["stock"] -= int(cantidad)
-            print(f"el stock es {libro["stock"]}")
-            libros_vendidos.append(nuevaVenta)
-            guardar_json()
-            guardar_json_venta()
-            print(
-            "\n#######################"
-            "\n INFORMACIÓN DE VENTA:")
-            mostrar_venta(nuevaVenta)
+          nuevaVenta= {
+            "id_venta": generar_ID_venta(libros_vendidos),
+            "id_libro": id,
+            "titulo":libro['titulo'],
+            "fecha": fecha_actual.strftime("%d/%m/%Y; %H:%M:%S"),
+            "cantidad": int(cantidad),
+            "total": float(total)
+          }
+          if cantidad == False:
+           break         
           else:
-            print("Venta cancelada")
-  else:
-    print("No hay stock del libro a vender.")
+            confirmacion = input(f"El precio por unidad es {libro['precio']}, el total a pagar es ${total}, desea CONFIRMAR la VENTA? S/N ")
+            if(confirmacion.lower() =="s"):
+              libro["stock"] -= int(cantidad)
+              print(f"el stock es {libro["stock"]}")
+              libros_vendidos.append(nuevaVenta)
+              guardar_json(libros)
+              guardar_json_venta(libros_vendidos)
+              print(
+              "\n#######################"
+              "\nINFORMACIÓN DE VENTA:")
+              mostrar_venta(nuevaVenta)
+            else:
+              print("Venta cancelada")
+        else:
+          print(f"""No hay stock de "{libro['titulo']}" """)
     
 while True :   
   inicio = input(
@@ -331,7 +325,7 @@ while True :
       break
     case "6":
       mostrar_vendidos(libros_vendidos)
-      continue
+      break
     case "7":
       ingresar_venta(libros, libros_vendidos)
       break

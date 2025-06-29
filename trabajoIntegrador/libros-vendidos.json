@@ -1,98 +1,10 @@
 [
     {
         "id_venta": 1,
-        "id_libro": 2,
-        "titulo": "1984",
-        "fecha": "2025-06-10",
-        "cantidad": 2,
-        "total": 5600.0
-    },
-    {
-        "id_venta": 2,
-        "id_libro": 1,
-        "titulo": "Cien años de soledad",
-        "fecha": "2025-06-11",
-        "cantidad": 1,
-        "total": 3500.0
-    },
-    {
-        "id_venta": 3,
-        "id_libro": 3,
-        "titulo": "El Principito",
-        "fecha": "2025-06-12",
-        "cantidad": 3,
-        "total": 6600.0
-    },
-    {
-        "id_venta": 4,
-        "id_libro": "5",
+        "id_libro": 5,
         "titulo": "Fahrenheit 451",
-        "fecha": "20-6-1980",
-        "cantidad": "3",
-        "total": 9300.0
-    },
-    {
-        "id_venta": 5,
-        "id_libro": "5",
-        "titulo": "Fahrenheit 451",
-        "fecha": "20-6-1989",
-        "cantidad": 0,
-        "total": 6200.0
-    },
-    {
-        "id_venta": 6,
-        "id_libro": "5",
-        "titulo": "Fahrenheit 451",
-        "fecha": "123",
-        "cantidad": 4,
-        "total": 12400.0
-    },
-    {
-        "id_venta": 7,
-        "id_libro": "2",
-        "titulo": "1984",
-        "fecha": "19/06/2025",
-        "cantidad": 3,
-        "total": 8400.0
-    },
-    {
-        "id_venta": 8,
-        "id_libro": "2",
-        "titulo": "1984",
-        "fecha": "19/06/2025",
+        "fecha": "29/06/2025; 18:36:18",
         "cantidad": 1,
-        "total": 2800.0
-    },
-    {
-        "id_venta": 9,
-        "id_libro": "2",
-        "titulo": "1984",
-        "fecha": "19/06/2025",
-        "cantidad": 1,
-        "total": 2800.0
-    },
-    {
-        "id_venta": 10,
-        "id_libro": "1",
-        "titulo": "Cien años de soledad",
-        "fecha": "27/06/2025",
-        "cantidad": 3,
-        "total": 10500.0
-    },
-    {
-        "id_venta": 11,
-        "id_libro": "1",
-        "titulo": "Cien años de soledad",
-        "fecha": "27/06/2025",
-        "cantidad": 1,
-        "total": 3500.0
-    },
-    {
-        "id_venta": 12,
-        "id_libro": "1",
-        "titulo": "Cien años de soledad",
-        "fecha": "27/06/2025",
-        "cantidad": 0,
-        "total": 0.0
+        "total": 3100.0
     }
 ]
