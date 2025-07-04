@@ -5,17 +5,8 @@
         "autor": "Gabriel García Márquez",
         "editorial": "Sudamericana",
         "año": 1967,
-        "stock": 4,
+        "stock": 2,
         "precio": 3500.0
-    },
-    {
-        "id": 2,
-        "titulo": "1984",
-        "autor": "George Orwell",
-        "editorial": "Debolsillo",
-        "año": 1949,
-        "stock": 7,
-        "precio": 2800.0
     },
     {
         "id": 3,
@@ -133,5 +124,14 @@
         "año": 1998,
         "stock": 3,
         "precio": 4000.0
+    },
+    {
+        "id": 16,
+        "titulo": "Martin fiuerrop",
+        "autor": "jose",
+        "editorial": "asdasd",
+        "año": 1232,
+        "stock": 123,
+        "precio": 12312.0
     }
 ]
