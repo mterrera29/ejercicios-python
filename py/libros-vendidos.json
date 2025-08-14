@@ -1,0 +1,10 @@
+[
+    {
+        "id_venta": 1,
+        "id_libro": 5,
+        "titulo": "Fahrenheit 451",
+        "fecha": "29/06/2025; 18:36:18",
+        "cantidad": 1,
+        "total": 3100.0
+    }
+]
