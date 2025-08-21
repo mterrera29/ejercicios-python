@@ -98,10 +98,29 @@
 #comida_favorita = "pizza"
 #print("La comida favorita de " + nombre + " se llama: " + comida_favorita)
 
-def declarar_comida_favorita(nombre_persona, nombre_comida):
-  print(f"La comida favorita de {nombre_persona} se llama: {nombre_comida} ")
+#def declarar_comida_favorita(nombre_persona, nombre_comida):
+#  print(f"La comida favorita de {nombre_persona} se llama {nombre_comida} ")
+#  
+#declarar_comida_favorita("Matias", "asado")
 
 #8. Extraer el procedimiento del ejercicio 7 a un archivo impresiones.py, el cual debe ser importado para su utilización.
+
+#import impresiones
+#
+#impresiones.declarar_comida_favorita("Matías", "asado")
+
 #9. Escribir un procedimiento cuenta_regresiva(entero_positivo) que imprima números enteros empezando por el valor pasado por parámetro y llegando hasta 0. Asumir que el número pasado por parámetro es un número entero positivo. Utilizar recursividad para desarrollar la solución.
+
+#def cuenta_regresiva(entero_positivo):
+#  if entero_positivo == 0:
+#    return print(0)
+#  else:
+#    print(entero_positivo)
+#    cuenta_regresiva(entero_positivo-1)
+
+#cuenta_regresiva(10)
+
 #10. Simplificar la siguiente expresión:
 #(a and b) or True
+
+True
