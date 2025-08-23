@@ -27,12 +27,12 @@
 
 #2. Escribir una función numero_en_orden_ascendente (numero) que retorne True si los dígitos del número están ordenados de menor a mayor, y False en caso contrario.
 
-#def numero_en_orden_ascendente(numero):
-#  numberList = list(str(numero))
-#  for i in range(len(numberList) - 1):
-#      if numberList[i] >= numberList[i+1]:
-#          return False
-#  return True
+def numero_en_orden_ascendente(numero):
+  numberList = list(str(numero))
+  for i in range(len(numberList) - 1):
+      if numberList[i] >= numberList[i+1]:
+          return False
+  return True
 #  
 #print(numero_en_orden_ascendente(1234))
 
@@ -69,11 +69,14 @@
 #c. No puede contener espacios.
 
 #def clave_valida(clave):
-#  if(len(clave) < 20 and len(clave)> 6 and any(char.isdigit() for char in clave) and " " not in clave  ):
+#  caracteres = ["1", "2"]
+#  if any(clave in caracteres):
+#    return print("hola")
+#  if(len(clave) < 20 and len(clave)> 6 and any(caracteres for char in clave) and " " not in clave  ):
 #    return True
 #  return False
 #
-#print(clave_valida("hola_123"))
+#print(clave_valida("hola_12"))
 
 #6. Reescribir la siguiente función eliminando la sentencia if/else:
 #def persona_mayor_de_edad(edad):
@@ -111,12 +114,12 @@
 
 #9. Escribir un procedimiento cuenta_regresiva(entero_positivo) que imprima números enteros empezando por el valor pasado por parámetro y llegando hasta 0. Asumir que el número pasado por parámetro es un número entero positivo. Utilizar recursividad para desarrollar la solución.
 
-#def cuenta_regresiva(entero_positivo):
-#  if entero_positivo == 0:
-#    return print(0)
-#  else:
-#    print(entero_positivo)
-#    cuenta_regresiva(entero_positivo-1)
+def cuenta_regresiva(entero_positivo):
+  if entero_positivo == 0:
+    print(0)
+  else:
+    print(entero_positivo)
+    cuenta_regresiva(entero_positivo-1)
 
 #cuenta_regresiva(10)
 
