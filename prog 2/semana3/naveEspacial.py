@@ -3,26 +3,35 @@ class NaveEspacial():
     maxDeposito = 1000
     parsec = 100
     # Método de inicialización
-    def __init__(self, o, c):
+    def __init__(self, co, comb):
+        self.estado_alertas = False
     # Atributos de instancia
         """ 
         si comb > maxDeposito, combustible=maxDeposito. 
         Requiere que o igual a 
         'V', 'R' o 'A'
         """
-        self.color=o
-        if c > self.maxDeposito:
+        self.color=co
+        if comb > self.maxDeposito:
             self.combustible = self.maxDeposito
         else:
-            self.combustible = c
+            self.combustible = comb
     # Comandos
-    def establecerColor(self,o):
-        self.color = o
-    def establecerCombustible(self,c):
-        if c > self.maxDeposito:
+    def establecerEstadoAlertas(self, habilitar):
+        self.estado_alertas= habilitar 
+        
+    def establecerColor(self,co):
+        self.color = co
+        
+    def agregarCombustible(self,comb):
+        if self.combustible + comb > self.maxDeposito:
+            if self.estado_alertas:
+              print("de los " +str(comb)+" litros solo se pudieron cargar "+str(self.maxDeposito- self.combustible)+" litros")              
             self.combustible = self.maxDeposito
         else:
-            self.combustible = c
+            if self.estado_alertas:
+                print("se cargaron "+str(comb) + " litros")
+            self.combustible += comb
     def llenarDeposito(self):
         self.combustible = self.maxDeposito
     # Consultas
