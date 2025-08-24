@@ -2,7 +2,9 @@ from naveEspacial import *
 from pelota import *
 
 
-
-nave_espacial1 = NaveEspacial('R', 500)
-nave_espacial2 = NaveEspacial('R', 500)
-print('Nave 1 = Nave 2: ' + str(nave_espacial1 == nave_espacial2))
+pelota1 = PelotaConNombre('Pelota 1')
+pelota2 = PelotaConNombre('Pelota 2')
+pelota1.establecerNombre('Pelota 2')
+pelota2.establecerNombre('Pelota 1')
+print(pelota1.obtenerNombre())
+print(pelota2.obtenerNombre())
