@@ -1,10 +1,11 @@
-from naveEspacial import *
-from pelota import *
+from naveEspacial1 import *
 
-
-pelota1 = PelotaConNombre('Pelota 1')
-pelota2 = PelotaConNombre('Pelota 2')
-pelota1.establecerNombre('Pelota 2')
-pelota2.establecerNombre('Pelota 1')
-print(pelota1.obtenerNombre())
-print(pelota2.obtenerNombre())
+12
+class VideoJuego():
+  nave1 = NaveEspacial("‘V’",1000)
+  nave2 = nave1
+  nave3 = NaveEspacial("‘V’",1000)
+  b1 = nave1 == nave2
+  b2 = nave1 == nave3
+  nave2.establecerCombustible(800)
+  print(nave1.obtenerCombustible())
