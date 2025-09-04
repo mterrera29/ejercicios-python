@@ -11,3 +11,19 @@ print(cancion3.obtenerGenero())
 cancion2.establecerGenero("bolero")
 
 print(cancion2.obtenerGenero())
+
+from circulo import *
+
+circulo1 = Circulo(2.0)
+circulo2 = Circulo(5.6)
+circulo3 = Circulo(7.8)
+
+print(circulo1.PI)
+print(circulo2.PI)
+print(circulo3.PI)
+
+circulo4 = Circulo(7.2)
+circulo5 = Circulo(7.2)
+
+print(circulo4==circulo5)
+print(circulo4.obtenerPerimetro( )== circulo5.obtenerPerimetro())
