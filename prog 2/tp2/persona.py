@@ -3,7 +3,7 @@ class Persona():
     self.nombre= n
     self.apellido= a
     self.grupoSanguineo= "A"
-    self.altura= 0.0 
+    self.altura= 0
     
   # Comandos
   def establecerNombres(self,n):

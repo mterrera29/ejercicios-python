@@ -9,4 +9,8 @@ persona2.obtenerNombres()
 persona3.establecerGrupoSanguineo("A")
 persona4.establecerAltura(173)
 
-persona4.obtenerAltura()
+
+persona1.obtenerNombreCompleto()
+persona2.obtenerNombreCompleto()
+persona3.obtenerNombreCompleto()
+persona4.obtenerNombreCompleto()
