@@ -1,4 +1,4 @@
-from persona import *
+""" from persona import *
 
 persona1=Persona("Juan","Garcia")
 persona2=Persona("Pedro","Lopez")
@@ -13,4 +13,24 @@ persona4.establecerAltura(173)
 persona1.obtenerNombreCompleto()
 persona2.obtenerNombreCompleto()
 persona3.obtenerNombreCompleto()
-persona4.obtenerNombreCompleto()
+persona4.obtenerNombreCompleto() """
+
+from cuadrado import *
+
+cuadrado1 = Cuadrado(12) 
+cuadrado2 = Cuadrado(5)
+cuadrado3 = Cuadrado(6)
+
+
+cuadrado1.obtenerPerimetro
+cuadrado2.obtenerPerimetro
+cuadrado3.obtenerPerimetro
+
+print(Cuadrado.instanciasCreadas) 
+
+cuadrado4 = Cuadrado(5)
+cuadrado5 = Cuadrado(5)
+
+print(cuadrado4 == cuadrado5)
+
+print(cuadrado4.obtenerLado() == cuadrado5.obtenerLado())
