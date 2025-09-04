@@ -12,7 +12,7 @@ class Circulo():
     return self.radio
   def obtenerDiametro(self):
     return 2 * self.radio
-  def obtenerArea(self):
-    return 2 * self.PI * self.radio
   def obtenerPerimetro(self):
+    return 2 * self.PI * self.radio
+  def obtenerArea(self):
     return self.PI * self.radio**2
