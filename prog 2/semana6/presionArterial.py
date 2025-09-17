@@ -18,9 +18,9 @@ class PresionArterial():
         '''
         retorna true si
         max > umbralMax o
-        min > umbralMin
+        min < umbralMin
         '''
-        return self.max > self.umbralMax or self.min > self.umbralMin
+        return self.max > self.umbralMax or self.min < self.umbralMin
     def equals(self,preArt):
         # requiere preArt ligado
         return self.min == preArt.obtenerMin() and self.max == preArt.obtenerMax() 
