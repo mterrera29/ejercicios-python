@@ -21,3 +21,11 @@ class Deposito():
   
   def obtenerEstanterias(self):
     return self.estanterias
+  
+  def __str__(self):
+    estanterias = ",".join(str(estanteria) for estanteria in self.cajas)
+    return f"N°: {self.numero}. Estanterias: {estanterias}"
+  def __eq__(self,other):
+    if(isinstance(other,Deposito)):
+      return other.numero == self.numero
+    return NotImplemented

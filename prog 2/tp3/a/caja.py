@@ -13,6 +13,8 @@ class Caja():
     self.profundidad= profundidad
     self.items = []
     self.material = material
+    self.numero = Caja.numeroSiguiente
+    Caja.numeroSiguiente = Caja.numeroSiguiente + 1
   #Comandos
   def establecerAlto(self, alto):
     self.alto = alto
@@ -36,3 +38,11 @@ class Caja():
     return self.items 
   def obtenerMaterial(self):
     self.material
+    
+  def __str__(self):
+    items = ",".join(str(item) for item in self.items)
+    return f"N°: {self.numero}. Dimensiones: {self.obtenerDimensiones()}. Material:{self.material}. Items: {items}"
+  def __eq__(self,other):
+    if(isinstance(other,Item)):
+      return other.numero == self.numero
+    return NotImplemented

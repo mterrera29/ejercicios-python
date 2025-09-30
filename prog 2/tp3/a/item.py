@@ -17,4 +17,9 @@ class Item():
   def obtenerDescripcion(self):
     return self.descripcion
     
-  
+  def __str__(self):
+    return f"N°: {self.numero}. Descripcion: {self.descripcion}"
+  def __eq__(self,other):
+    if(isinstance(other,Item)):
+      return other.numero == self.numero
+    return NotImplemented
