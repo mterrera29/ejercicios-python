@@ -11,7 +11,7 @@ class Caja():
     self.alto = alto
     self.ancho= ancho
     self.profundidad= profundidad
-    self.item = Item()
+    self.items = []
     self.material = material
   #Comandos
   def establecerAlto(self, alto):
@@ -23,16 +23,16 @@ class Caja():
   def establecerMaterial(self, material):
     self.material = material
   def agregarItem(self, item):
-    return
+    self.items.append(item)
   def removerItem(self, item):
-    return
+    self.items.remove(item)
   
   #Consultas
   def obtenerNumero(self):
     return self.numero
   def obtenerDimensiones(self):
-    return self.descripcion
+    return f"Alto: {self.alto}. Profundidad: {self.profundidad}. Ancho: {self.ancho}"
   def obtenerItems(self):
-    return self.numero  
+    return self.items 
   def obtenerMaterial(self):
-    return
+    self.material
