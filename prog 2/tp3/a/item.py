@@ -6,7 +6,8 @@ class Item():
   def __init__(self, descripcion):
     
   # Atributos de instancia
-    self.numero = numero
+    self.numero = Item.numeroSiguiente
+    Item.numeroSiguiente = Item.numeroSiguiente +1
     self.descripcion= descripcion
     
   #Consultas
