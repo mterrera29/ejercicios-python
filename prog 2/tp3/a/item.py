@@ -1,9 +1,9 @@
 class Item():
   # Atributos de clase
-  numeroSiguiente= 0
+  numeroSiguiente= 1
   
   # Método de inicialización
-  def __init__(self, numero, descripcion):
+  def __init__(self, descripcion):
     
   # Atributos de instancia
     self.numero = numero
