@@ -43,6 +43,6 @@ class Caja():
     items = ",".join(str(item) for item in self.items)
     return f"N°: {self.numero}. Dimensiones: {self.obtenerDimensiones()}. Material:{self.material}. Items: {items}"
   def __eq__(self,other):
-    if(isinstance(other,Item)):
+    if(isinstance(other,Caja)):
       return other.numero == self.numero
     return NotImplemented
