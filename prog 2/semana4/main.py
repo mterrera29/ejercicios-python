@@ -13,14 +13,15 @@ print(b,e,s) """
 robot1 = Robot('Manuel')
 robot2 = Robot('Luchi')
 robot1.dormir()
-robot2.dormir()
-robot1.despertar()
-robot2.despertar()
-for i in range(1, 10): 
-    robot1.caminar()
-for i in range(10, 1, -1): 
+for i in range(1, 5):
+  if (i % 2 == 0):
+    robot1.dormir()
+  else:
+    robot1.despertar()
+for j in range(i, 5):
+  if (i % 2 == 0):
+    robot2.dormir()
+  else:
+    robot2.despertar()
     robot2.caminar()
-robot1.conMasEnergia(robot2)
-
-print(robot1,robot2)
-print(robot1==robot2)
+print(robot1.conMasEnergia(robot2))
